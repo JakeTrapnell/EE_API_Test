@@ -12,7 +12,6 @@ public class ClassRoomServiceImpl implements ClassRoomService {
 	@Inject
 	private ClassRoomRepository repo;
 	
-
 	public String getAllClassRooms() {
 		return repo.getAllClassRooms();
 	}

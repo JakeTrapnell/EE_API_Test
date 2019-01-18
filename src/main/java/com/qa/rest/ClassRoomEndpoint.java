@@ -38,7 +38,7 @@ public class ClassRoomEndpoint {
 		return service.deleteClassRoom(id);
 	}
 	
-	@Path("json{id}")
+	@Path("json/{id}")
 	@POST
 	@Produces({"application/json"})	
 	public String updateclassRoom(@PathParam("id") Long id, String classRoom) {
