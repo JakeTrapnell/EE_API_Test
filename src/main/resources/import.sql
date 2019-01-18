@@ -1,0 +1,5 @@
+INSERT INTO ClassRoom (id, trainer) VALUES ('John')
+INSERT INTO ClassRoom (id, trainer) VALUES ('Dave')
+INSERT INTO ClassRoom (id, trainer) VALUES ('Matt')
+INSERT INTO ClassRoom (id, trainer) VALUES ('Jordan')
+INSERT INTO ClassRoom (id, trainer) VALUES ('Naomi')
