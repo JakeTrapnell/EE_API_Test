@@ -13,6 +13,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.qa.persistence.domain.ClassRoom;
+import com.qa.persistence.domain.Trainee;
 import com.qa.util.JSONUtil;
 
 
@@ -62,6 +63,42 @@ public class ClassRoomDBR implements ClassRoomRepository {
 	
 	private ClassRoom findClassRoom(Long id) {
 		return manager.find(ClassRoom.class, id);
+	}
+
+	@Transactional(REQUIRED)
+	public String createTrainee(String trainee) {
+		Trainee aTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		manager.persist(aTrainee);
+		return "{\"message\": \"Trainee has been sucessfully added\"}";
+	}
+
+	@Transactional(REQUIRED)
+	public String getAllTrainees() {
+		Query query = manager.createQuery("Select a FROM Trainee a");
+		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
+		return util.getJSONForObject(trainees);
+	}
+
+	@Transactional(REQUIRED)
+	public String deleteTrainee(Long id) {
+		Trainee traineeInDB = findTrainee(id);
+		if(traineeInDB != null) {
+			manager.remove(traineeInDB);
+		}
+		return "{\"message\": \"Trainee sucessfully deleted\"}";
+	}
+
+	@Transactional(REQUIRED)
+	public String updateTrainee(Long id, String trainee) {
+		Trainee theTrainee = findTrainee(id);
+		manager.remove(theTrainee);
+		Trainee aTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		manager.persist(aTrainee);
+		return"{\\\"message\\\": \\\"Trainee sucessfully updated\\\"}";
+	}
+	
+	private Trainee findTrainee(Long id) {
+		return manager.find(Trainee.class, id);
 	}
 
 }

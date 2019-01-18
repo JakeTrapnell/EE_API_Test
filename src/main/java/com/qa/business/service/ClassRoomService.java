@@ -6,5 +6,10 @@ public interface ClassRoomService {
 	String addClassRoom(String classRoom);
 	String deleteClassRoom(Long id);
 	String updateClassRoom(Long id, String classRoom);
+	
+	String getAllTrainees();
+	String addTrainee(String trainee);
+	String deleteTrainee(Long id);
+	String updateTrainee(Long id, String trainee);
 
 }

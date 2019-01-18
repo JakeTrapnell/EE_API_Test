@@ -45,6 +45,35 @@ public class ClassRoomEndpoint {
 		return service.updateClassRoom(id, classRoom);
 	}
 	
+	@Path("/json/trainee")
+	@GET
+	@Produces({"application/json"})
+	public String getAllTrainees() {
+		return service.getAllTrainees();
+	}
+	
+	@Path("/json/trainee")
+	@POST
+	@Produces({"application/json"})
+	public String addTrainee(String trainee) {
+		return service.addClassRoom(trainee);
+	}
+	
+	@Path("json/trainee/{id}")
+	@DELETE
+	@Produces({"application/json"})
+	public String deleteTrainee(@PathParam("id") Long id) {
+		return service.deleteTrainee(id);
+	}
+	
+	@Path("json/trainee/{id}")
+	@POST
+	@Produces({"application/json"})	
+	public String updateTrainee(@PathParam("id") Long id, String trainee) {
+		return service.updateClassRoom(id, trainee);
+	}
+	
+	
 	public void setService(ClassRoomService service) {
 		this.service = service;
 	}

@@ -32,4 +32,22 @@ public class ClassRoomServiceImpl implements ClassRoomService {
 		this.repo = repo;
 	}
 
+	public String getAllTrainees() {
+		return repo.getAllTrainees();
+	}
+
+	public String addTrainee(String trainee) {
+		return repo.createTrainee(trainee);
+	}
+
+	public String deleteTrainee(Long id) {
+		return repo.deleteTrainee(id);
+	}
+
+	public String updateTrainee(Long id, String trainee) {
+		return repo.updateTrainee(id, trainee);
+	}
+
+	
+
 }
